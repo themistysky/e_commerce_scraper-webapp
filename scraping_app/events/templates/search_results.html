@@ -1,0 +1,26 @@
+{% extends "search.html" %}
+{% block body %}
+<h2 class="text-center"><u>Search Results</u></h2><br>            
+  <table class="table table-info table-striped">
+    <thead>
+      <tr>
+        <th>Keywords</th>
+        <th>Website</th>
+        <th>Title</th>
+        <th>Price</th>
+        <th>Availibility</th>
+      </tr>
+    </thead>
+    <tbody>  
+    {% for i in data %}
+      <tr>
+        <td>{{i.keywords}}</td>
+        <td>{{i.website}}</td>
+        <td>{{i.title}}</td>
+        <td>{{i.price}}</td>
+        <td>{{i.availability}}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

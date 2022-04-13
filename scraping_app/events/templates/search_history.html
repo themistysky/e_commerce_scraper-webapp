@@ -1,0 +1,123 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="csrf_token" content="{{ csrf_token }}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+ <style>
+    .container {
+  height: 200px;
+  position: relative;
+  border: 3px solid green;
+  background: rgb(19,9,3);
+}
+
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+a
+{
+  width: 500px;
+  size: 500px;
+  text-align: center;
+  font-size: 15px;
+  padding: 20px;
+  border-radius: 15px;
+}
+body{
+    margin:0;
+    padding:0;
+    font-family: sans-serif;
+    background: url('{% static "img/technology.jpg" %}');
+    background-size: cover;
+}
+.box{
+  padding:30px;
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  background:rgba(0,0,0, 0);
+  text-align:center;
+
+}
+.box a
+{
+    color: white;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.box a
+{
+border: 0;
+background: none;
+display: block;
+margin: 20px auto;
+text-align: center;
+border:3px solid #0367fd;
+padding:14px 10px;
+width:220px;
+outline: none;
+color: white;
+border-radius: 24px;
+transition:0.25px;
+}
+
+.box a{
+border: 0;
+background: none;
+display: block;
+width: 220px;
+margin: 20px auto;
+text-align: center;
+border:3px solid #ffc400ec;
+padding:14px 35px;
+outline: none;
+color: white;
+border-radius: 24px;
+transition:0.25px;
+cursor:pointer;    
+}
+.box a:hover{
+    background: #ffc400ec;
+}
+  </style>
+  </head>
+  <body>
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    
+    <div class="text-center" >
+            <p style="font-size: 40px; color: white;">Menu</p>
+    </div>
+    
+    <div class="box">
+      <div class="center">
+        <br>
+        <a href="search.html" class="btn btn-primary" >Search</a>
+        <br>
+        <br>
+       <br>
+        <a href="history.html" class="btn btn-secondary">History</a>
+      </div>
+    </div>
+    
+</body>
+</html>

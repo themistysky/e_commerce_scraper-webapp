@@ -1,0 +1,7 @@
+
+{
+	"SECRET_KEY": "django-insecure-w9m)&f(+bo#wayrjcrw_%gnt!c6+o61_uiry72&f&(0rl2xd3pAka#6%MaDaRcHoDnIkLi",
+	"EMAIL_USER": "<email of your django database user>",
+	"EMAIL_PASS": "<your password>"
+
+}

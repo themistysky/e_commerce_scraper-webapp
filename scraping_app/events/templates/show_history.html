@@ -1,0 +1,94 @@
+!<!doctype html>
+<html lang="en" >
+  <head>
+    <title>Show History</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+<body>
+<style>
+.menu
+{
+    color: white;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.menu{
+border: 0;
+background: rgb(230, 30, 97);
+display: block;
+width: 100px;
+text-align: center;
+border:0px;
+margin-right: 200px;
+padding:5px 10px;
+outline: none;
+color: white;
+border-radius: 24px;
+transition:0.25px;
+cursor:pointer;
+    
+}
+.menu :hover{
+    background: #ffc400ec;
+}
+</style>
+	<center>
+    <table>
+      <tr style="margin-left: 0px">
+        <td style="margin-left: 0px; padding-bottom: 30px; ">
+          <form action="/search_history.html">
+            <button type="submit" class="menu">Menu</button>
+         </form>
+      </td>
+      <td style="padding-left: 150px; padding-right: 170px;">
+        <h1 style="font-size: 50px;">History</h1>
+      </td>
+      <td>
+        <a style="padding-left: 150px;" href="{% url 'history_csv' %}"><button style="border-radius: 5px; color:rgb(7, 230, 37); font-size: 13px; font-weight: bolder;" type="submit"> Download CSV File</button></a>
+      </td>
+    </tr>
+    </table>
+
+    <table class="table table-hover">
+    <thead class="thead">
+      <tr>
+        <th>Date Time</th>
+        <th>Keywords</th>
+        <th>Websites</th>
+        <th>Title</th>
+        <th>Price</th>
+        <th>Availibility</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for i in list1 %}
+      <tr style="height: 20px; font-size: 13px;">
+        <td>{{i.date}}</td>
+        <td>{{i.keywords}}</td>
+        <td>{{i.websites}}</td>
+        <td>{{i.title}}</td>
+        <td>{{i.price}}</td>
+        <td>{{i.availibility}}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+	</center>
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

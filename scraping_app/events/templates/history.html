@@ -1,0 +1,109 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>History</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+  h1{
+    text-align: center;
+    font-family:sans-serif;
+  }
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+.menu
+{
+    color: white;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+body{
+  margin:0;
+    padding:0;
+    font-family: sans-serif;
+    background: url('{% static "img/history.jpg" %}');
+    color: black;
+}
+.menu{
+border: 0;
+background: rgb(230, 30, 97);
+display: block;
+width: 100px;
+text-align: center;
+border:2px rgb(255, 187, 0);
+margin-right: 200px;
+padding:5px 10px;
+outline: none;
+color: white;
+border-radius: 24px;
+transition:0.25px;
+cursor:pointer;
+    
+}
+.menu :hover{
+    background: #ffc400ec;
+}
+</style>
+  </head>
+  <body>
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  <div class="container">
+    <div class="text-center" >
+      <br>
+      <span>
+        <form action="/search_history.html">
+         <button type="submit" class="menu">Menu</button>
+       </form>
+    </span>
+      <p style="font-size: 55px; color: rgb(251, 249, 131); font-family:cursive;"><b>HISTORY</b></p><br>
+  </div>            
+  <table class="table table-success table-hover">
+    <thead class="thead thead-success">
+      <tr>
+        <th>Date Time</th>
+        <th>Keywords</th>
+        <th>Websites</th>
+      </tr>
+    </thead>
+    <tbody>
+    <!-- jinja2 Technique --> 
+    {% for history in history_list %}
+      <tr>
+        <td>
+            <a href="{% url 'show_history' history.id %}">{{history.date}}</a>
+        </td>
+        <td>{{history.keywords}}</td>
+        <td>{{history.websites}}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+    </body>
+
+</html>

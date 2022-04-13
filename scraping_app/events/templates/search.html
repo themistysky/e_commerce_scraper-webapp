@@ -1,0 +1,357 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Search</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+
+<style>
+
+.no-display{
+  display: none;
+}
+
+body{
+    margin:0;
+    padding:0;
+    font-family: sans-serif;
+    background: url('{% static "img/leaves.jpg" %}') no-repeat;
+    background-size: cover;
+    color: white;
+
+}
+
+h1
+{
+    color: black;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.check
+{
+  background: none;
+}
+
+
+
+.box button[type="submit"]{
+border: 0;
+background: none;
+display: block;
+text-align: center;
+border:3px solid #ffc400ec;
+padding:14px 35px;
+outline: none;
+color: white;
+border-radius: 24px;
+transition:0.25px;
+cursor:pointer;
+margin-left: 380px;
+    
+}
+.box button[type="submit"]:hover{
+    background: #ffc400ec;
+}
+.check {
+    width: 900px;
+    margin: 20px auto;
+    clear: both;
+    display: block;
+    border-radius: 10px;
+    text-align: left;
+}
+.check::after {
+    clear: both;
+    display: block;
+    content: "";
+}
+.check .checkbox-container {
+    float: left;
+    width: 200px;
+    box-sizing: border-box;
+    text-align:center;
+  padding: 20px;
+  align-content: center;
+}
+
+
+/* Styling Checkbox Starts */
+.checkbox-label {
+    color: white;
+    display: block;
+    position: absolute;
+    margin: auto;
+    cursor: pointer;
+    font-size: 19px;
+    font-weight: bold;
+    line-height: 16px;
+    height: 30px;
+    width: 16px;
+    clear: both;
+}
+.checkbox-label input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkbox-label .mark {
+    top: 1px;
+    right: 22px;
+    position: absolute;
+    height: 12px;
+    width: 12px;
+    background-color:white;
+    border-radius: 2px;
+    transition: all 0.3s ease-in;
+    border: 2px solid white;
+}
+.checkbox-label input:checked ~ .mark {
+    background-color: white;
+    border-radius: 2px;
+    transform: rotate(0deg) scale(1);
+    opacity:1;
+    border: 1px solid white;
+}
+.checkbox-label .mark::after {
+    position: absolute;
+    content: "";
+    border-radius: 2px;
+}
+.checkbox-label input:checked ~ .mark::after {
+  transform: rotate(45deg) scale(1);
+  left: 2px;
+  top: 1px;
+  width: 5px;
+  height: 8px;
+  border: solid red;
+  border-width: 0 1px 1px 0;
+  border-radius: 0;
+}
+/* For Ripple Effect */ 
+.checkbox-label .mark::before {
+    position: absolute;
+    content: "";
+    border-radius: 5px;
+    border: 2px solid yellow;
+    transform: scale(0);    
+}
+
+.checkbox-label input:checked ~ .mark::before {
+    left: -3px;
+    top: -3px;
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    transform: scale(3);
+    opacity: 0;   
+    transition: all 0.3s ease-out;
+}
+
+.box a{
+border: 0;
+background: none;
+display: block;
+margin: 10px auto;
+text-align: justify;
+position: absolute;
+border:3px solid #ffc400ec;
+padding: 14px 35px;
+outline: none;
+color: white;
+border-radius: 24px;
+transition:0.25px;
+cursor:pointer;
+    
+}
+.box a:hover{
+    background: #ffc400ec;
+}
+
+</style>
+
+  </head>
+  <body>
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <center>
+      <br><br><br>
+        <div class="text-center" >
+            <p style="font-size: 50px; color: white;"><b>SEARCH</b></p>
+        </div>
+    </center>
+    <br><br>
+    <div class="box">  
+        <form action="" method="post" id="form">{% csrf_token %}
+            <center>
+            <div class="form-group" style="width:880px;"><input type="text" class="form-control" id="keywords" placeholder="Enter keywords" name="keywords"> </div> 
+            </center>
+            <div class="check">
+              <table style="margin: 0 auto">
+                <tr>
+                  <td>
+                  <div class="checkbox-container">
+                  <label class="checkbox-label" for="website1">kotsovolos.cy
+                    <input type="checkbox" id="website1" name='https://www.kotsovolos.cy/'>
+                    <span class="mark"></span>
+                  </label>
+                </td>
+                  </div>
+                  <td>
+                  <div class="checkbox-container">
+                  <label class="checkbox-label">kotsovolos.gr
+                    <input type="checkbox" id="website2" name='https://www.kotsovolos.gr/'>
+                    <span class="mark"></span>
+                  </label>
+                  </div>
+                </td>
+                <td>
+                  <div class="checkbox-container">
+                  <label class="checkbox-label">plaisio.gr
+                    <input type="checkbox" id="website3" name='https://www.plaisio.gr/'>
+                    <span class="mark"></span>
+                  </label>
+                  </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                  <div class="checkbox-container">
+                  <label class="checkbox-label">mediamarkt.gr
+                    <input type="checkbox" id="website4" name='https://www.mediamarkt.gr/' >
+                    <span class="mark"></span>
+                  </label>
+                </div>
+                </td>
+                  <td>
+                  <div class="checkbox-container">
+                  <label class="checkbox-label">public.cy
+                    <input type="checkbox" id="website5" name='https://www.public.cy/' >
+                    <span class="mark"></span>
+                  </label>
+                  </div>
+                  </td>
+                  <td>
+                  <div class="checkbox-container">
+                  <label class="checkbox-label">public.gr
+                    <input type="checkbox" id="website6"  name='https://www.public.gr/'>
+                    <span class="mark"></span>
+                  </label>
+                  </div>
+                  </td>
+                  </tr>
+                <tr>
+                  <td>
+                  <div class="checkbox-container">
+                  <label class="checkbox-label">stephanis.com.cy
+                    <input type="checkbox" id="website7"  name='https://www.stephanis.com.cy/'>
+                    <span class="mark"></span>
+                  </label>
+                  </div>
+                  </td>
+                  <td>
+                  <div class="checkbox-container">
+                  <label class="checkbox-label">electroline.com.cy
+                    <input type="checkbox" id="website8"  name='https://www.electroline.com.cy/'>
+                    <span class="mark"></span>
+                  </label>
+                  </div>
+                  </td>
+                  <td>
+                  <div class="checkbox-container">
+                  <label class="checkbox-label">sofroniouelectronics.com
+                    <input type="checkbox" id="website9"  name='https://sofroniouelectronics.com/index.php'>
+                    <span class="mark"></span>
+                  </label>
+                  </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                  <div class="checkbox-container">
+                  <label class="checkbox-label">cosmodata.gr
+                    <input type="checkbox" id="website10" name='http://www.cosmodata.gr/'>
+                    <span class="mark"></span>
+                  </label>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </table>
+          <br><br>
+          <div class="box">
+           <table>
+            <tr>
+              <td>
+                <label for="woman" style="font-size: 20px;"><b>Scheduler</b></label><br>
+                <label id="woman" for="scheduler">Search at (hhmm) hrs:</label>
+                <input id="scheduler" name='scheduler'><br><br>
+                <p style="width: 180px; opacity: 0.7; font-size: 13px;">{{sch_status}}</p>
+              </td>
+              <td style="padding-left: 600px;">
+                <a href="history.html" class="btn btn-primary">History</a>
+              </td>
+              </tr>
+              </table>
+            </div>
+      
+            <p style="color: rgb(248, 188, 188); font-size: 17px; text-align: center;" id="error" ><b>{{error}}</b></p>
+           <div id="spinner" style="display: none;">
+              <div class="d-flex justify-content-center mt-5">
+                <div class="spinner-border text-success">
+                  <span class="sr-only" >Loading...</span>
+                </div>
+                <p style="color: rgb(178, 241, 183); font-size: 16px; text-align: center; padding-left: 30px;">Searching... this may take several minutes.</p><br>
+              </div>
+            </div>
+             <button id="button" type="submit" form="form" onclick="func()">Submit</button>
+            <div id="status">
+              <br>
+              <p style="color:rgb(144, 243, 44); font-size: 16px; text-align: center;">{{status}}</p>
+            </div>
+      </div>
+  </form>  
+  <script>
+    const spinner = document.getElementById("spinner");
+    const status = document.getElementById("status");
+    const error = document.getElementById("error");
+
+      function func() { 
+        error.innerText = '';
+        status.innerText = '';
+        setInterval(function(){
+        new Promise(r => setTimeout(r, 2000));
+         if (status.textContent == "Search successful. Database updated." || error.innerText ){
+                console.log("success")
+                spinner.style.display = "none";
+         }
+         else{
+           console.log("not success")
+          spinner.style.display = "block";
+         }
+
+     }, 50)
+    }
+
+
+
+  /*  $("button").click(function(e){
+      e.preventDefault();
+      console.log('clicked')
+      func()
+      }) */
+
+  </script>
+</body>
+</html>
