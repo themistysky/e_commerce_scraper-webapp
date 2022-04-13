@@ -26,7 +26,7 @@ For educational purposes.
 ### For linux server
    > Edit the file `sites-enabled/scraping_app.conf` according to your project path  
    > Put the `sites-enabled` folder and `apache2.conf` in `/etc/apache2`  
-   > Put `config.json` in `/etc`  
+   > Edit `config.json` and put it in `/etc`  
 
 ### Usage 
 - clone this repository 
@@ -56,7 +56,13 @@ For educational purposes.
   - sudo chown -R :www-data scraping_app
 - run server through apache2
   - sudo service apache2 restart  
-- go to browser and hit `<your domain name>`
+- go to browser and hit `<your domain name>` 
+  - login with username- `admin` and password- `admin` 
+  - enter keywords to search, select websites to search, click on `SUBMIT` 
+  - Set a scheduler to run everyday at a given time  
+    - enter keywords and websites as mentioned above, enter a time in 4 digits (hhmm) in 24 hrs. format, hit `SUBMIT`
+    - enter 'stop' in scheduler field to stop running the last schedule.
+    - setting a new scheduler overwrites the last schedule.
  
  
 <br>  
